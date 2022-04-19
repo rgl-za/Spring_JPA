@@ -1,9 +1,6 @@
 package study;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 
 public class Main {
     public static void main(String[] args){
@@ -15,11 +12,20 @@ public class Main {
         try{
             tx.begin();
 
-            Movie movie = new Movie();
-            movie.setMovieId(1L);
-            movie.setMovieName("타이타닉");
+//            Movie movie = new Movie();
+//            movie.setMovieId(2L);
+//            movie.setMovieName("오징어게임");
 
-            em.persist(movie);
+//            em.persist(movie);
+
+
+            Movie findMovie = em.find(Movie.class, 1L);
+            System.out.println("findMovie = " + findMovie);
+
+//            findMovie.setMovieName("로미오와줄리엣");
+
+            em.remove(findMovie);
+
             tx.commit();
 
         } catch (Exception e){

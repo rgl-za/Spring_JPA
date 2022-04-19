@@ -18,6 +18,14 @@ public class Movie {
         return movieId;
     }
 
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "movieId=" + movieId +
+                ", movieName='" + movieName + '\'' +
+                '}';
+    }
+
     public void setMovieId(Long movieId) {
         this.movieId = movieId;
     }
